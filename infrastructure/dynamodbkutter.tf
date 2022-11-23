@@ -1,4 +1,4 @@
-module "dynamodb_table" {
+resource "aws_dynamodb_table" "basic-dynamodb-table" {
   name     = "kutter-table"
   billing_mode   = "PROVISIONED"
   read_capacity  = 5
