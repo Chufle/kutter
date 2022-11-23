@@ -9,4 +9,4 @@ module "dynamodb_table" {
       name = "objectId"
       type = "S"
   }
-
+}
