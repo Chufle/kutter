@@ -12,3 +12,6 @@ https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html
 
 # copy file to s3
 https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html
+
+## Delete local branches in git that don’t track a remote
+https://www.brainstormcreative.co.uk/git/git-delete-all-my-local-branches-that-dont-track-a-remote/
