@@ -36,3 +36,8 @@ testfolder
 
 # more hidden files and folders
 .DS_Store
+.venv
+
+# more folders
+build
+__pycache__
