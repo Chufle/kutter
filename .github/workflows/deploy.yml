@@ -22,3 +22,4 @@ jobs:
           sh setup_photos_bucket.sh
           terraform init
           terraform apply -auto-approve
+          
