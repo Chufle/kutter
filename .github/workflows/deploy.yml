@@ -15,11 +15,13 @@ jobs:
       AWS_REGION: us-west-2
     steps:
       - uses: actions/checkout@v3
-      - name: run terraform
+      - name: setup s3 buckets
         run:  |
           cd infrastructure
           sh setup_terraform_bucket.sh
           sh setup_photos_bucket.sh
+      - name: run terraform
+        run:  |
+          cd infrastructure
           terraform init
           terraform apply -auto-approve
-          
