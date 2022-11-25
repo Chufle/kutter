@@ -1,0 +1,27 @@
+name: Deploy infrastructure
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+ 
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{  aws_sandbox.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{  aws_sandbox.AWS_SECRET_ACCESS_KEY }}
+      AWS_SESSION_TOKEN: ${{  aws_sandbox.AWS_SESSION_TOKEN }}
+      AWS_REGION: us-west-2
+    steps:
+      - uses: actions/checkout@v3
+      - name: setup s3 buckets
+        run:  |
+          cd infrastructure
+          sh setup_terraform_bucket.sh
+          sh setup_photos_bucket.sh
+      - name: run terraform
+        run:  |
+          cd infrastructure
+          terraform init
+          terraform apply -auto-approve
