@@ -7,10 +7,10 @@ https://renatello.com/create-branch-from-another-branch-in-git/
 ## terraform dynamodb table
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dynamodb_table
 
-# lambda s3 trigger
+## lambda s3 trigger
 https://docs.aws.amazon.com/lambda/latest/dg/with-s3-example.html
 
-# copy file to s3
+## copy file to s3
 https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html
 
 ## Delete local branches in git that don’t track a remote
@@ -21,3 +21,6 @@ https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3.ht
 
 ## to generate a readable filename from s3 object key: urllib.parse.unquote_plus()
 https://docs.python.org/3/library/urllib.parse.html
+
+## Setting Up Your Python Environment With Venv and requirements.txt
+https://frankcorso.dev/setting-up-python-environment-venv-requirements.html
