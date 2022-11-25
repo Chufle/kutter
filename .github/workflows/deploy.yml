@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: setup s3 buckets
         run:  |
-          cd infrastructure/scripte
+          cd infrastructure/scripts
           sh setup_terraform_bucket.sh
           sh setup_photos_bucket.sh
       - name: run terraform
