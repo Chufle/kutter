@@ -33,3 +33,6 @@ override.tf.json
 
 # folder "testfolder"
 testfolder
+
+# more hidden files and folders
+.DS_Store
