@@ -1,7 +1,10 @@
+import urllib.parse
+import boto3
+
 def get_s3_object(event):
-    bucket = ()
-    file_name = ()
-    creation_date = ()
+    bucket = event['Records'][0]['s3']['bucket']['name']
+    file_name = urllib.parse.unquote_plus(event['Records'][0]['s3']['object']['key'], encoding='utf-8')
+    creation_date = event['Records'][0]['eventTime']
     return bucket, file_name, creation_date
 
 def create_db_object_id():
