@@ -52,3 +52,9 @@ https://docs.aws.amazon.com/cli/latest/reference/iam/get-role.html
 
 ## terraform: depends on
 https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on
+
+## terraform: locals
+https://spacelift.io/blog/terraform-locals
+
+## terraform: account ids
+https://ao.ms/how-to-get-the-aws-accountid-in-terraform/
