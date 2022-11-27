@@ -19,7 +19,6 @@ jobs:
         run:  |
           cd infrastructure/scripts
           sh setup_terraform_bucket.sh
-          sh setup_photos_bucket.sh
       - name: make zip for lambda function
         run:  |
           cd infrastructure/scripts
