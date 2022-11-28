@@ -1,5 +1,6 @@
 import urllib.parse
 import boto3
+import uuid
 
 def get_s3_object(event):
     bucket = event['Records'][0]['s3']['bucket']['name']
@@ -7,9 +8,9 @@ def get_s3_object(event):
     creation_date = event['Records'][0]['eventTime']
     return file_name, bucket, creation_date
 
-# def generate_db_object_id():
-#    object_id = 1234
-#    return object_id
+ def generate_db_object_id():
+    object_id = str(uuid.uuid4())
+    return object_id
 
 def put_db_object(object_id, file_name, bucket, creation_date):
     dynamodb = boto3.resource('dynamodb')
@@ -24,5 +25,5 @@ def put_db_object(object_id, file_name, bucket, creation_date):
 
 def handler(event, context):     
     file_name, bucket, creation_date = get_s3_object(event)
-    object_id = "test1234"
+    object_id = generate_db_object_id()
     put_db_object(object_id, file_name, bucket, creation_date)
