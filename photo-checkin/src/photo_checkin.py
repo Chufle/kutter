@@ -8,7 +8,7 @@ def get_s3_object(event):
     creation_date = event['Records'][0]['eventTime']
     return file_name, bucket, creation_date
 
- def generate_db_object_id():
+def generate_db_object_id():
     object_id = str(uuid.uuid4())
     return object_id
 
