@@ -27,3 +27,28 @@ https://frankcorso.dev/setting-up-python-environment-venv-requirements.html
 
 ## terraform lambda
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function
+
+## AWS IAM: Creating IAM role for Lambda with aws console
+https://www.youtube.com/watch?v=T7cny-uyCuA
+https://kulasangar.medium.com/creating-and-attaching-an-aws-iam-role-with-a-policy-to-an-ec2-instance-using-terraform-scripts-aa85f3e6dfff
+
+## Terraform: Resource: aws_iam_role
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_role
+
+## AWS IAM: Managed policies and inline policies
+https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_managed-vs-inline.html
+
+## Creating and attaching an AWS IAM role, with a policy to an EC2 instance using Terraform scripts
+https://kulasangar.medium.com/creating-and-attaching-an-aws-iam-role-with-a-policy-to-an-ec2-instance-using-terraform-scripts-aa85f3e6dfff
+
+## Three ways to create IAM Role:
+https://lepczynski.it/en/aws_en/how-to-create-iam-policy-and-iam-role-in-terraform-3-ways-2022/
+
+## By using this data source, you can reference IAM role properties without having to hard code ARNs as input:
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_role
+
+# aws cli get role
+https://docs.aws.amazon.com/cli/latest/reference/iam/get-role.html
+
+## terraform: depends on
+https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on
