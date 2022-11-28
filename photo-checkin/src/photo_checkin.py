@@ -7,9 +7,9 @@ def get_s3_object(event):
     creation_date = event['Records'][0]['eventTime']
     return file_name, bucket, creation_date
 
-def generate_db_object_id():
-    object_id = test123
-    return object_id
+# def generate_db_object_id():
+#    object_id = 1234
+#    return object_id
 
 def put_db_object(object_id, file_name, bucket, creation_date):
     dynamodb = boto3.resource('dynamodb')
@@ -24,5 +24,5 @@ def put_db_object(object_id, file_name, bucket, creation_date):
 
 def handler(event, context):     
     file_name, bucket, creation_date = get_s3_object(event)
-    object_id = generate_db_object_id()
+    object_id = 1234
     put_db_object(object_id, file_name, bucket, creation_date)

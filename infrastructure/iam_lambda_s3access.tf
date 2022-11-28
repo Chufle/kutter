@@ -45,6 +45,7 @@ resource "aws_iam_role_policy_attachment" "nfish-des-lambda_s3_access" {
   for_each = toset([
   aws_iam_policy.nfish-des-pol-lambda_s3_access.arn,
   "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+  "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess",
   ])
   policy_arn = each.value
 }
