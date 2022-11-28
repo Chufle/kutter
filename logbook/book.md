@@ -24,3 +24,6 @@ https://docs.python.org/3/library/urllib.parse.html
 
 ## Setting Up Your Python Environment With Venv and requirements.txt
 https://frankcorso.dev/setting-up-python-environment-venv-requirements.html
+
+## terraform lambda
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/lambda_function
