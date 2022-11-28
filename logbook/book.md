@@ -58,3 +58,6 @@ https://spacelift.io/blog/terraform-locals
 
 ## terraform: account ids
 https://ao.ms/how-to-get-the-aws-accountid-in-terraform/
+
+## terraform: attach multiple policies to iam role
+https://francescoboffa.com/terraform-multiple-policies-to-roles/
