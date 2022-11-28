@@ -24,5 +24,5 @@ def put_db_object(object_id, file_name, bucket, creation_date):
 
 def handler(event, context):     
     file_name, bucket, creation_date = get_s3_object(event)
-    object_id = 1234
+    object_id = "test1234"
     put_db_object(object_id, file_name, bucket, creation_date)
