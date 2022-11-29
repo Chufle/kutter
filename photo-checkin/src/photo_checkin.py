@@ -1,6 +1,13 @@
 import urllib.parse
 import boto3
 import uuid
+import os
+
+dynamodb = boto3.resource('dynamodb')
+
+kutter_table_name = os.getenv('KUTTER_TABLE_NAME')
+
+kutter_table = dynamodb.Table(kutter_table_name)
 
 def get_s3_object(event):
     bucket = event['Records'][0]['s3']['bucket']['name']
@@ -13,9 +20,7 @@ def generate_db_object_id():
     return object_id
 
 def put_db_object(object_id, file_name, bucket, creation_date):
-    dynamodb = boto3.resource('dynamodb')
-    table = dynamodb.Table('kutter-table')
-    response = table.put_item(
+    response = kutter_table.put_item(
         Item={
            "objectId": object_id,
            "originalFileName": file_name,
