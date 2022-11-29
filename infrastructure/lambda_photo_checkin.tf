@@ -14,6 +14,12 @@ resource "aws_lambda_function" "photo_checkin" {
   timeout       = 300
   runtime       = "python3.9"
   source_code_hash = filebase64sha256("build/photo_checkin.zip")
+
+  environment {
+    variables = {
+      KUTTER_TABLE_NAME = aws_dynamodb_table.dynamodb-kutter-table.name
+    }
+  }
 }
 
 resource "aws_s3_bucket" "nfish-des-kutter-photos" {

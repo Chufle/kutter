@@ -11,10 +11,22 @@ resource "aws_iam_policy" "nfish-des-pol-lambda_s3_dynamodb" {
             "Effect": "Allow",
             "Action": [
                 "s3:*",
-                "s3-object-lambda:*",
+                "s3-object-lambda:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
                 "logs:CreateLogGroup",
                 "logs:CreateLogStream",
-                "logs:PutLogEvents",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
                 "dynamodb:BatchGet*",
                 "dynamodb:DescribeStream",
                 "dynamodb:DescribeTable",
