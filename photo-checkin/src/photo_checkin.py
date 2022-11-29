@@ -1,20 +1,29 @@
 import urllib.parse
 import boto3
+import uuid
 
-print('Loading function')
-
-s3 = boto3.client('s3')
-
-def handler(event, context):
-    # Get the object from the event and show its content type
+def get_s3_object(event):
     bucket = event['Records'][0]['s3']['bucket']['name']
-    key = urllib.parse.unquote_plus(event['Records'][0]['s3']['object']['key'], encoding='utf-8')
-    try:
-        response = s3.get_object(Bucket=bucket, Key=key)
-        print("originalFileName: " + key)
-        print("s3Bucket: " + bucket)
-        print("creationDate: " + event['Records'][0]['eventTime'])
-    except Exception as e:
-        print(e)
-        print('Error getting object {} from bucket {}. Make sure they exist and your bucket is in the same region as this function.'.format(key, bucket))
-        raise e
+    file_name = urllib.parse.unquote_plus(event['Records'][0]['s3']['object']['key'], encoding='utf-8')
+    creation_date = event['Records'][0]['eventTime']
+    return file_name, bucket, creation_date
+
+def generate_db_object_id():
+    object_id = str(uuid.uuid4())
+    return object_id
+
+def put_db_object(object_id, file_name, bucket, creation_date):
+    dynamodb = boto3.resource('dynamodb')
+    table = dynamodb.Table('kutter-table')
+    response = table.put_item(
+        Item={
+           "objectId": object_id,
+           "originalFileName": file_name,
+           "s3Bucket": bucket,
+           "creationDate": creation_date,
+   })
+
+def handler(event, context):     
+    file_name, bucket, creation_date = get_s3_object(event)
+    object_id = generate_db_object_id()
+    put_db_object(object_id, file_name, bucket, creation_date)

@@ -52,3 +52,15 @@ https://docs.aws.amazon.com/cli/latest/reference/iam/get-role.html
 
 ## terraform: depends on
 https://developer.hashicorp.com/terraform/language/meta-arguments/depends_on
+
+## terraform: locals
+https://spacelift.io/blog/terraform-locals
+
+## terraform: account ids
+https://ao.ms/how-to-get-the-aws-accountid-in-terraform/
+
+## terraform: attach multiple policies to iam role
+https://francescoboffa.com/terraform-multiple-policies-to-roles/
+
+## terraform: lambda s3 trigger
+https://stackoverflow.com/questions/68245765/add-trigger-to-aws-lambda-functions-via-terraform
