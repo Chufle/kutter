@@ -83,3 +83,6 @@ https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/c
 
 ## Actions, resources, and condition keys for Amazon DynamoDB
 https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazondynamodb.html
+
+## terraform: IAM Policy Document
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document
