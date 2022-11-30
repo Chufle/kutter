@@ -14,7 +14,7 @@ resource "aws_iam_policy" "nfish-des-pol-lambda_s3_dynamodb" {
                 "s3-object-lambda:PutObject",
                 "s3-object-lambda:DeleteObject"
             ],
-            "Resource": "arn:aws:s3:::nfish-des-kutter-photos"
+            "Resource": "arn:aws:s3:::${local.bucketname-photos}"
         },
         {
             "Effect": "Allow",
