@@ -1,3 +1,3 @@
 locals {
-    bucketname-photos = "nfish-des-kutter-photos1"
+    bucketname-photos = "nfish-des-kutter-photos"
 }
