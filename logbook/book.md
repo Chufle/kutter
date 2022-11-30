@@ -47,7 +47,7 @@ https://lepczynski.it/en/aws_en/how-to-create-iam-policy-and-iam-role-in-terrafo
 ## By using this data source, you can reference IAM role properties without having to hard code ARNs as input:
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_role
 
-# aws cli get role
+## aws cli get role
 https://docs.aws.amazon.com/cli/latest/reference/iam/get-role.html
 
 ## terraform: depends on
@@ -67,3 +67,19 @@ https://stackoverflow.com/questions/68245765/add-trigger-to-aws-lambda-functions
 
 ## IAM Policies: Allows Access to a Specific DynamoDB Table
 https://asecure.cloud/a/iam_ddb_1/
+
+## terraform types
+https://developer.hashicorp.com/terraform/language/expressions/type-constraints
+
+## terraform how can I find the ARN for bucket created on module
+https://stackoverflow.com/questions/51278407/terraform-how-can-i-find-the-arn-for-bucket-created-on-module
+
+## S3 and IAM with Terraform
+https://www.sammeechward.com/s3-and-iam-with-terraform
+
+## How to use AWS account_id variable in Terraform -> e.g. useful for unknown dynamodb arn
+https://stackoverflow.com/questions/68397972/how-to-use-aws-account-id-variable-in-terraform
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity
+
+## Actions, resources, and condition keys for Amazon DynamoDB
+https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazondynamodb.html
