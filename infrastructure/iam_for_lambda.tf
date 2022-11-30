@@ -1,5 +1,53 @@
-resource "aws_iam_role" "nfish-des-role-lambda_s3_access" {
-  name = "nfish-des-role-lambda_s3_access"
+resource "aws_iam_policy" "nfish-des-pol-lambda_s3_dynamodb" {
+  name        = "nfish-des-pol-lambda_s3_dynamodb"
+  description = "access to s3 and dynamodb for lambda"
+  path        = "/"
+
+  policy = <<EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:*",
+                "s3-object-lambda:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:BatchGet*",
+                "dynamodb:DescribeStream",
+                "dynamodb:DescribeTable",
+                "dynamodb:Get*",
+                "dynamodb:Query",
+                "dynamodb:Scan",
+                "dynamodb:BatchWrite*",
+                "dynamodb:CreateTable",
+                "dynamodb:Delete*",
+                "dynamodb:Update*",
+                "dynamodb:PutItem"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+EOF
+}
+
+resource "aws_iam_role" "nfish-des-role-lambda_s3_dynamodb" {
+  name = "nfish-des-role-lambda_s3_dynamodb"
 
   assume_role_policy = <<EOF
 {
@@ -18,18 +66,14 @@ resource "aws_iam_role" "nfish-des-role-lambda_s3_access" {
 EOF
 }
 
-resource "aws_iam_role_policy_attachment" "nfish-des-lambda_s3_access" {
-  role       = aws_iam_role.nfish-des-role-lambda_s3_access.name
-  for_each = toset([
-  "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
-  "arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess",
-  ])
-  policy_arn = each.value
+resource "aws_iam_role_policy_attachment" "nfish-des-lambda_s3_dynamodb" {
+  role       = aws_iam_role.nfish-des-role-lambda_s3_dynamodb.name
+  policy_arn = aws_iam_policy.nfish-des-pol-lambda_s3_dynamodb.arn
 }
 
-data "aws_iam_role" "nfish-des-role-lambda_s3_access" {
-  name = "nfish-des-role-lambda_s3_access"
+data "aws_iam_role" "nfish-des-role-lambda_s3_dynamodb" {
+  name = "nfish-des-role-lambda_s3_dynamodb"
   depends_on = [
-    aws_iam_role.nfish-des-role-lambda_s3_access
+    aws_iam_role.nfish-des-role-lambda_s3_dynamodb
   ]
 }

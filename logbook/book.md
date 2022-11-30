@@ -64,3 +64,6 @@ https://francescoboffa.com/terraform-multiple-policies-to-roles/
 
 ## terraform: lambda s3 trigger
 https://stackoverflow.com/questions/68245765/add-trigger-to-aws-lambda-functions-via-terraform
+
+## IAM Policies: Allows Access to a Specific DynamoDB Table
+https://asecure.cloud/a/iam_ddb_1/
