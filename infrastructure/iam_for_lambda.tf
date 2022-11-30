@@ -10,10 +10,11 @@ resource "aws_iam_policy" "nfish-des-pol-lambda_s3_dynamodb" {
         {
             "Effect": "Allow",
             "Action": [
-                "s3:*",
-                "s3-object-lambda:*"
+                "s3-object-lambda:Get*",
+                "s3-object-lambda:PutObject",
+                "s3-object-lambda:DeleteObject"
             ],
-            "Resource": "*"
+            "Resource": "arn:aws:s3:::nfish-des-kutter-photos"
         },
         {
             "Effect": "Allow",
@@ -27,19 +28,16 @@ resource "aws_iam_policy" "nfish-des-pol-lambda_s3_dynamodb" {
         {
             "Effect": "Allow",
             "Action": [
-                "dynamodb:BatchGet*",
                 "dynamodb:DescribeStream",
                 "dynamodb:DescribeTable",
                 "dynamodb:Get*",
                 "dynamodb:Query",
                 "dynamodb:Scan",
-                "dynamodb:BatchWrite*",
-                "dynamodb:CreateTable",
-                "dynamodb:Delete*",
-                "dynamodb:Update*",
+                "dynamodb:DeleteItem",
+                "dynamodb:UpdateItem",
                 "dynamodb:PutItem"
             ],
-            "Resource": "*"
+            "Resource": "arn:aws:dynamodb:us-west-2:${data.aws_caller_identity.current.account_id}:table/kutter-table"
         }
     ]
 }
