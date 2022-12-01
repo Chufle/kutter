@@ -3,7 +3,44 @@ resource "aws_iam_policy" "nfish-des-pol-lambda_s3_dynamodb" {
   description = "access to s3 and dynamodb for lambda"
   path        = "/"
 
-  policy = data.aws_iam_policy_document.iam_pol_doc_for_lambda.json
+  policy = <<EOF
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:*",
+                "s3-object-lambda:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "dynamodb:DescribeStream",
+                "dynamodb:DescribeTable",
+                "dynamodb:Get*",
+                "dynamodb:Query",
+                "dynamodb:Scan",
+                "dynamodb:DeleteItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:PutItem"
+            ],
+            "Resource": "arn:aws:dynamodb:us-west-2:${data.aws_caller_identity.current.account_id}:table/kutter-table"
+        }
+    ]
+}
+EOF
 }
 
 resource "aws_iam_role" "nfish-des-role-lambda_s3_dynamodb" {
