@@ -1,7 +1,15 @@
-resource "aws_s3_bucket" "nfish-des-kutter-photos" {
-  bucket = "${local.bucketname-photos}"
+resource "aws_s3_bucket" "nfish-des-kutter-upload" {
+  bucket = "${local.bucketname-upload}"
 
   tags = {
-    Name        = "${local.bucketname-photos}"
+    Name        = "${local.bucketname-upload}"
+  }
+}
+
+resource "aws_s3_bucket" "nfish-des-kutter-store" {
+  bucket = "${local.bucketname-store}"
+
+  tags = {
+    Name        = "${local.bucketname-store}"
   }
 }

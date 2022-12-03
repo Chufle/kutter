@@ -3,7 +3,7 @@ resource "aws_lambda_permission" "allow_bucket" {
   action        = "lambda:InvokeFunction"
   function_name = aws_lambda_function.photo_checkin.arn
   principal     = "s3.amazonaws.com"
-  source_arn    = aws_s3_bucket.nfish-des-kutter-photos.arn
+  source_arn    = aws_s3_bucket.nfish-des-kutter-upload.arn
 }
 
 resource "aws_lambda_function" "photo_checkin" {
@@ -18,12 +18,13 @@ resource "aws_lambda_function" "photo_checkin" {
   environment {
     variables = {
       KUTTER_TABLE_NAME = aws_dynamodb_table.dynamodb-kutter-table.name
+      STORE_BUCKET_NAME = aws_s3_bucket.nfish-des-kutter-store.bucket
     }
   }
 }
 
 resource "aws_s3_bucket_notification" "bucket_notification" {
-  bucket = aws_s3_bucket.nfish-des-kutter-photos.id
+  bucket = aws_s3_bucket.nfish-des-kutter-upload.id
 
   lambda_function {
     lambda_function_arn = aws_lambda_function.photo_checkin.arn
