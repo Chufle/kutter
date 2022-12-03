@@ -18,8 +18,9 @@ def get_s3_object(event):
     creation_date = event['Records'][0]['eventTime']
     return file_name, bucket, creation_date
 
-def rename_s3_object(old_bucket,old_file_name,new_bucket,new_file_name):
+def move_s3_object(old_bucket,old_file_name,new_bucket,new_file_name):
     s3client.copy_object(Bucket=new_bucket, CopySource=old_bucket+"/"+old_file_name, Key=new_file_name)
+    s3client.delete_object(Bucket = old_bucket, Key = old_file_name)
 
 def generate_db_object_id():
     object_id = str(uuid.uuid4())
@@ -46,5 +47,5 @@ def handler(event, context):
     object_id = generate_db_object_id()
     file_extension = get_file_extension(file_name)
     new_file_name = object_id + "." + file_extension
-    rename_s3_object(bucket, file_name, store_bucket, new_file_name)
+    move_s3_object(bucket, file_name, store_bucket, new_file_name)
     put_db_object(object_id, file_name, store_bucket, creation_date)
