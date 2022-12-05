@@ -86,3 +86,6 @@ https://docs.aws.amazon.com/service-authorization/latest/reference/list_amazondy
 
 ## terraform: IAM Policy Document
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/iam_policy_document
+
+## PyScript Anfänger Tutorial Deutsch - Webseiten mit PYTHON erstellen
+https://youtu.be/IBLqKFdhiyU

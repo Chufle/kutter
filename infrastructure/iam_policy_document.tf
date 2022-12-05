@@ -1,11 +1,15 @@
 data "aws_iam_policy_document" "iam_pol_doc_for_lambda" {
   statement {
     actions = [
-      "s3:*",
-      "s3-object-lambda:*"
+      "s3:Get*",
+      "s3:PutObject",
+      "s3:DeleteObject"
     ]
     resources = [
-      "*"
+      aws_s3_bucket.nfish-des-kutter-upload.arn,
+      "${aws_s3_bucket.nfish-des-kutter-upload.arn}/*",
+      aws_s3_bucket.nfish-des-kutter-store.arn,
+      "${aws_s3_bucket.nfish-des-kutter-store.arn}/*"
     ]
   }
   statement {
