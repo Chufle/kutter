@@ -13,3 +13,11 @@ resource "aws_s3_bucket" "nfish-des-kutter-store" {
     Name        = "${local.bucketname-store}"
   }
 }
+
+resource "aws_s3_bucket" "nfish-des-kutter-lb-logs" {
+  bucket = "${local.bucketname-lb-logs}"
+
+  tags = {
+    Name        = "${local.bucketname-lb-logs}"
+  }
+}
