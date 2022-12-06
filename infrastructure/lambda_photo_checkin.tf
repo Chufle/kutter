@@ -22,14 +22,6 @@ resource "aws_lambda_function" "photo_checkin" {
   }
 }
 
-resource "aws_s3_bucket" "nfish-des-kutter-photos" {
-  bucket = "nfish-des-kutter-photos"
-
-  tags = {
-    Name        = "nfish-des-kutter-photos"
-  }
-}
-
 resource "aws_s3_bucket_notification" "bucket_notification" {
   bucket = aws_s3_bucket.nfish-des-kutter-photos.id
 
