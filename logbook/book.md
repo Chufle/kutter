@@ -89,3 +89,6 @@ https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/i
 
 ## PyScript Anfänger Tutorial Deutsch - Webseiten mit PYTHON erstellen
 https://youtu.be/IBLqKFdhiyU
+
+## terraform aws variables
+https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-variables
