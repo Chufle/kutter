@@ -92,3 +92,6 @@ https://youtu.be/IBLqKFdhiyU
 
 ## terraform aws variables
 https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-variables
+
+## AWS API Gateway with lambda event
+https://www.youtube.com/watch?v=uFsaiEhr1zs
