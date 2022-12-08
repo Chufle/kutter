@@ -1,3 +1,5 @@
+# Following policies for s3, dynamodb and logs access:
+
 data "aws_iam_policy_document" "kutter_lambda_s3_logs_db" {
   statement {
     actions = [
@@ -38,6 +40,8 @@ data "aws_iam_policy_document" "kutter_lambda_s3_logs_db" {
         ]
   }
 }
+
+# Following policies for dynamodb and logs access:
 
 data "aws_iam_policy_document" "kutter_lambda_logs_db" {
   statement {

@@ -1,3 +1,5 @@
+# Following policies for s3, dynamodb and logs access:
+
 resource "aws_iam_policy" "nfish-des-pol-lambda_s3_dynamodb" {
   name        = "nfish-des-pol-lambda_s3_dynamodb"
   description = "access to s3 and dynamodb for lambda"
@@ -37,6 +39,8 @@ data "aws_iam_role" "nfish-des-role-lambda_s3_dynamodb" {
     aws_iam_role.nfish-des-role-lambda_s3_dynamodb
   ]
 }
+
+# Following policies for dynamodb and logs access:
 
 resource "aws_iam_policy" "nfish-des-pol-lambda_dynamodb" {
   name        = "nfish-des-pol-lambda_dynamodb"
