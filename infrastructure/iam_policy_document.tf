@@ -1,12 +1,11 @@
 data "aws_iam_policy_document" "iam_pol_doc_for_lambda" {
   statement {
     actions = [
-        "s3-object-lambda:Get*",
-        "s3-object-lambda:PutObject",
-        "s3-object-lambda:DeleteObject"
+      "s3:*",
+      "s3-object-lambda:*"
     ]
     resources = [
-        "arn:aws:s3:::${local.bucketname-photos}"
+      "*"
     ]
   }
   statement {
@@ -31,7 +30,7 @@ data "aws_iam_policy_document" "iam_pol_doc_for_lambda" {
         "dynamodb:PutItem"
     ]
     resources = [
-        "arn:aws:dynamodb:us-west-2:${data.aws_caller_identity.current.account_id}:table/kutter-table"
-    ]
+      aws_dynamodb_table.dynamodb-kutter-table.arn
+        ]
   }
 }
