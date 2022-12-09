@@ -11,4 +11,8 @@ zip -r ../../infrastructure/build/list_objects.zip .
 # make zip for lambda function get_object.py
 cd ../../get_object/src
 zip -r ../../infrastructure/build/get_object.zip .
+
+# make zip for lambda function search_objects.py
+cd ../../search_objects/src
+zip -r ../../infrastructure/build/search_objects.zip .
 cd ../..
