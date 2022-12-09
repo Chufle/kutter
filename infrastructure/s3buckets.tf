@@ -1,15 +1,15 @@
 resource "aws_s3_bucket" "nfish-des-kutter-upload" {
-  bucket = "${local.bucketname-upload}"
+  bucket = "${var.bucketname-upload}"
 
   tags = {
-    Name        = "${local.bucketname-upload}"
+    Name        = "${var.bucketname-upload}"
   }
 }
 
 resource "aws_s3_bucket" "nfish-des-kutter-store" {
-  bucket = "${local.bucketname-store}"
+  bucket = "${var.bucketname-store}"
 
   tags = {
-    Name        = "${local.bucketname-store}"
+    Name        = "${var.bucketname-store}"
   }
 }
