@@ -1,4 +1,4 @@
-resource "aws_lambda_permission" "apigw02" {
+resource "aws_lambda_permission" "apigw_get_object" {
   statement_id  = "AllowAPIGatewayInvoke"
   action        = "lambda:InvokeFunction"
   function_name = "${aws_lambda_function.get_object.function_name}"
