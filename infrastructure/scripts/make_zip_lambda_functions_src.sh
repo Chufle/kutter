@@ -15,4 +15,8 @@ zip -r ../../infrastructure/build/get_object.zip .
 # make zip for lambda function search_objects.py
 cd ../../search_objects/src
 zip -r ../../infrastructure/build/search_objects.zip .
+
+# make zip for lambda function news_crawler.py
+cd ../../news_crawler/src
+zip -r ../../infrastructure/build/news_crawler.zip .
 cd ../..
