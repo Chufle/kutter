@@ -7,7 +7,7 @@ import boto3
 topic = "Harburg"
 dateFrom = "2022-12-03"
 sortBy = "popularity"
-apiKey = "22f8570bfae94270854b80c15e6d89b8"
+apiKey = ""
 url = ('https://newsapi.org/v2/everything?'
        'q='+topic+'&'
        'from='+dateFrom+'&'
