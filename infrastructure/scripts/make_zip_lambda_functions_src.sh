@@ -24,7 +24,7 @@ zip -r ../../infrastructure/build/news_crawler.zip .
 cd ../../requests_layer
 python3 -m venv .venv
 source .venv/bin/activate
-mkdir python
-pip install -r requirements.txt -t python
-zip -r ../infrastructure/build/requests_layer.zip python
+mkdir .python
+pip install -r requirements.txt -t .python
+zip -r ../infrastructure/build/requests_layer.zip .python
 cd ../..
