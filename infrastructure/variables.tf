@@ -9,3 +9,9 @@ variable "bucketname-store" {
   type        = string
   default     = "nfish-des-kutter-store"
 }
+
+variable "bucketname-source-code" {
+  description = "Name of the lambda source code - Production env"
+  type        = string
+  default     = "nfish-des-kutter-source-code"
+}
