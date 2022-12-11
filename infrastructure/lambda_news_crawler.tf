@@ -16,7 +16,7 @@ resource "aws_lambda_function" "news_crawler" {
 }
 
 resource "aws_lambda_layer_version" "requests_layer" {
-  s3_bucket     = var.bucketname-source-code
+  s3_bucket     = "nfish-des-kutter-source-code"
   s3_key        = "requests-layer.zip"
   layer_name    = "requests-layer"
 

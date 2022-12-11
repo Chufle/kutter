@@ -13,11 +13,3 @@ resource "aws_s3_bucket" "nfish-des-kutter-store" {
     Name        = "${var.bucketname-store}"
   }
 }
-
-resource "aws_s3_bucket" "nfish-des-kutter-source-code" {
-  bucket = "${var.bucketname-source-code}"
-
-  tags = {
-    Name        = "${var.bucketname-source-code}"
-  }
-}
