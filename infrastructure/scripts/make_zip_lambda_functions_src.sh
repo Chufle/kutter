@@ -19,4 +19,12 @@ zip -r ../../infrastructure/build/search_objects.zip .
 # make zip for lambda function news_crawler.py
 cd ../../news_crawler/src
 zip -r ../../infrastructure/build/news_crawler.zip .
+
+# make zip for lambda layer for function new_crawler.py
+cd ../../requests_layer
+python3 -m venv .venv
+source .venv/bin/activate
+mkdir python
+pip install -r requirements.txt -t python
+zip -r ../infrastructure/build/requests_layer.zip python
 cd ../..
