@@ -2,9 +2,9 @@ import json
 import boto3
 
 dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table('kutter-table')
 
 def handler(event, context):
-    table = dynamodb.Table('kutter-table')
     body = table.scan()
     items = body['Items']
     return {
