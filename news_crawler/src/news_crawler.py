@@ -49,6 +49,9 @@ def put_db_object_news(news_from_api):
 
 def handler(event, context):
     topic = event ['queryStringParameters']['topic']
-    dateFrom =  event ['queryStringParameters']['date']
+    dateFrom =  event ['queryStringParameters']['dateFrom']
     newsdata = load_news(topic,dateFrom)
     put_db_object_news(newsdata)
+    return {
+        'statusCode': 200
+    }
