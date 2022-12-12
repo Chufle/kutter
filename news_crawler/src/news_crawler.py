@@ -4,21 +4,18 @@ import uuid
 import os
 import boto3
 
-topic = "Harburg"
-dateFrom = "2022-12-03"
-sortBy = "popularity"
-apiKey = os.getenv('NEWS_API_KEY')
-url = ('https://newsapi.org/v2/everything?'
-       'q='+topic+'&'
-       'from='+dateFrom+'&'
-       'sortBy='+sortBy+'&'
-       'apiKey='+apiKey)
-
 dynamodb = boto3.resource('dynamodb')
 kutter_table_name = os.getenv('KUTTER_TABLE_NAME')
 kutter_table = dynamodb.Table(kutter_table_name)
 
-def load_news():
+def load_news(topic,dateFrom):
+    sortBy = "popularity"
+    apiKey = os.getenv('NEWS_API_KEY')
+    url = ('https://newsapi.org/v2/everything?'
+       'q='+topic+'&'
+       'from='+dateFrom+'&'
+       'sortBy='+sortBy+'&'
+       'apiKey='+apiKey)
     response = requests.get(url)
     return response.json()
 
@@ -51,5 +48,7 @@ def put_db_object_news(news_from_api):
         )
 
 def handler(event, context):
-    newsdata = load_news()
+    topic = event ['queryStringParameters']['topic']
+    dateFrom =  event ['queryStringParameters']['date']
+    newsdata = load_news(topic,dateFrom)
     put_db_object_news(newsdata)
