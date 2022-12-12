@@ -7,7 +7,7 @@ import boto3
 topic = "Harburg"
 dateFrom = "2022-12-03"
 sortBy = "popularity"
-apiKey = ""
+apiKey = os.getenv('NEWS_API_KEY')
 url = ('https://newsapi.org/v2/everything?'
        'q='+topic+'&'
        'from='+dateFrom+'&'
@@ -53,6 +53,3 @@ def put_db_object_news(news_from_api):
 def handler(event, context):
     newsdata = load_news()
     put_db_object_news(newsdata)
-
-#test = map_news(newsdata)
-#print(test)

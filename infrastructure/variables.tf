@@ -9,3 +9,9 @@ variable "bucketname-store" {
   type        = string
   default     = "nfish-des-kutter-store"
 }
+
+variable "NEWS_API_KEY" {
+  description = "NEWS_API_KEY"
+  type        = string
+  sensitive   = true
+}
