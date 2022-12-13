@@ -20,8 +20,7 @@ def load_news(topic,dateFrom):
     return response.json()
 
 def generate_db_object_id():
-    object_id = str(uuid.uuid4())
-    return object_id
+    return str(uuid.uuid4())
 
 def map_news(news_from_api):
     news = []
