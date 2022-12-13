@@ -27,3 +27,4 @@ jobs:
           cd infrastructure
           terraform init
           terraform apply -auto-approve -var 'NEWS_API_KEY=${{ secrets.NEWS_API_KEY }}'
+          
