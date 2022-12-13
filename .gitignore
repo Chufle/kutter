@@ -37,6 +37,7 @@ testfolder
 # more hidden files and folders
 .DS_Store
 .venv
+.python
 
 # more folders
 build

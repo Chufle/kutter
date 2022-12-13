@@ -95,3 +95,9 @@ https://developer.hashicorp.com/terraform/tutorials/aws-get-started/aws-variable
 
 ## AWS API Gateway with lambda event
 https://www.youtube.com/watch?v=uFsaiEhr1zs
+
+## How to use requests module in AWS Lambda
+https://www.gcptutorials.com/article/how-to-use-requests-module-in-aws-lambda
+
+## terraform github actions workflow secrets
+https://mile95.github.io/terraform-github-actions-workflow-secrets/
