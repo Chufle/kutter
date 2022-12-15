@@ -3,8 +3,6 @@ resource "aws_api_gateway_rest_api" "kutter_API" {
   description = "for AWS Lambda trigger"
 }
 
-# list-objects endpoint (root):
-
 resource "aws_api_gateway_method" "proxy_root" {
   rest_api_id   = "${aws_api_gateway_rest_api.kutter_API.id}"
   resource_id   = "${aws_api_gateway_rest_api.kutter_API.root_resource_id}"
@@ -23,6 +21,13 @@ resource "aws_api_gateway_integration" "lambda_root" {
 }
 
 resource "aws_api_gateway_deployment" "kutter" {
+  depends_on = [
+    aws_lambda_function.get_object,
+    aws_api_gateway_integration.lambda_search_objects,
+    aws_api_gateway_integration.lambda_news_crawler,
+    aws_api_gateway_integration.lambda_root,
+  ]
+
   rest_api_id = "${aws_api_gateway_rest_api.kutter_API.id}"
   stage_name  = "prod"
 }
