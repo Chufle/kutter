@@ -22,7 +22,7 @@ resource "aws_api_gateway_integration" "lambda_root" {
 
 resource "aws_api_gateway_deployment" "kutter" {
   depends_on = [
-    aws_lambda_function.get_object,
+    aws_api_gateway_integration.lambda_get_object,
     aws_api_gateway_integration.lambda_search_objects,
     aws_api_gateway_integration.lambda_news_crawler,
     aws_api_gateway_integration.lambda_root,
