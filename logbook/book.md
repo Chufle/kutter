@@ -101,3 +101,6 @@ https://www.gcptutorials.com/article/how-to-use-requests-module-in-aws-lambda
 
 ## terraform github actions workflow secrets
 https://mile95.github.io/terraform-github-actions-workflow-secrets/
+
+## python checking if query string exists
+https://stackoverflow.com/questions/52205712/aws-python-lambda-function-checking-if-a-query-string-is-present

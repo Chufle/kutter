@@ -13,13 +13,22 @@ def search_objects_data(search, limit):
     }
 
 def handler(event, context):
-    search = event ['queryStringParameters']['search']
-    limit = int(10)
-    items = search_objects_data(search,limit)
-    return {
-        'statusCode': 200,
-        'headers': {
-            'Content-Type': 'application/json'
-        },
-        'body': json.dumps(items)
-    }
+    try:
+        search = event ['queryStringParameters']['search']
+        limit = int(10)
+        items = search_objects_data(search,limit)
+        return {
+            'statusCode': 200,
+            'headers': {
+                'Content-Type': 'application/json'
+            },
+            'body': json.dumps(items)
+        }
+    except Exception as exception:
+        return {
+            'statusCode': 404,
+            'headers': {
+                'Content-Type': 'application/json'
+            },
+            'body': "{\"error exception\": \"wrong query string parameter. should be ?search=\"}"
+        }
