@@ -53,6 +53,7 @@ def put_db_object_news(news_from_api):
             response = kutter_table.put_item(
                 Item={
                     "objectId": object_id,
+                    "objectType": "news-object",
                     "title": api_news["title"],
                     "creationDate": api_news["publishedAt"],
                     "url": api_news["url"],

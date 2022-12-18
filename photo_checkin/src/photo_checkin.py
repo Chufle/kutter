@@ -30,6 +30,7 @@ def put_db_object(object_id, file_name, bucket, creation_date):
     response = kutter_table.put_item(
         Item={
            "objectId": object_id,
+           "objectType": "photo-object",
            "originalFileName": file_name,
            "s3Bucket": bucket,
            "creationDate": creation_date,
