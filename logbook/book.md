@@ -101,3 +101,9 @@ https://www.gcptutorials.com/article/how-to-use-requests-module-in-aws-lambda
 
 ## terraform github actions workflow secrets
 https://mile95.github.io/terraform-github-actions-workflow-secrets/
+
+## how to use dynamodb stream as lambda trigger
+https://hevodata.com/learn/dynamodb-streams-lambda/
+https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dynamodb_table
+https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodbstreams.html?highlight=string
+https://www.youtube.com/watch?v=4YzuN4MAFiQ
