@@ -88,7 +88,7 @@ resource "aws_api_gateway_resource" "put_project_object" {
 resource "aws_api_gateway_method" "put_project_object" {
   rest_api_id   = "${aws_api_gateway_rest_api.kutter_API.id}"
   resource_id   = "${aws_api_gateway_resource.put_project_object.id}"
-  http_method   = "PUT"
+  http_method   = "GET"
   authorization = "NONE"
 }
 
