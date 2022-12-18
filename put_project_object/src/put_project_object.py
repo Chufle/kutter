@@ -27,3 +27,6 @@ def handler(event, context):
     news_location = event ['queryStringParameters']['location']
     object_id = generate_db_object_id()
     put_db_object(object_id, news_location)
+    return {
+        'statusCode': 200
+    }

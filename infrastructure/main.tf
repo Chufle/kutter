@@ -6,7 +6,7 @@ terraform {
     }
   }
    backend "s3" {
-    bucket = "nfish-des-kutter-terraform-state1"
+    bucket = "nfish-des-kutter-terraform-state"
     key    = "terraform.tfstate"
     region = "us-west-2"
   }
