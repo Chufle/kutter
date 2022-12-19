@@ -13,12 +13,30 @@ def get_object_data(objectId):
     return response['Item']
 
 def handler(event, context):
-    objectId = event ['queryStringParameters']['objectId']
-    item = get_object_data(objectId)
-    return {
-        'statusCode': 200,
-        'headers': {
-            'Content-Type': 'application/json'
-        },
-        'body': json.dumps(item)
-    }
+    try:
+        objectId = event ['queryStringParameters']['objectId']
+        try:
+            item = get_object_data(objectId)
+            return {
+                'statusCode': 200,
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+                'body': json.dumps(item)
+            }
+        except Exception as exception:
+            return {
+                'statusCode': 404,
+                'headers': {
+                    'Content-Type': 'application/json'
+                },
+                'body': "{\"error exception\": \"objectId " + objectId + " not found\"}"
+            }
+    except Exception as exception:
+        return {
+            'statusCode': 404,
+            'headers': {
+                'Content-Type': 'application/json'
+            },
+            'body': "{\"error exception\": \"wrong query string parameter. should be ?objectId=uuid\"}"
+        }

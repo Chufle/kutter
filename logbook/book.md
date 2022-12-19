@@ -107,3 +107,6 @@ https://hevodata.com/learn/dynamodb-streams-lambda/
 https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dynamodb_table
 https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/dynamodbstreams.html?highlight=string
 https://www.youtube.com/watch?v=4YzuN4MAFiQ
+
+## python checking if query string exists
+https://stackoverflow.com/questions/52205712/aws-python-lambda-function-checking-if-a-query-string-is-present
