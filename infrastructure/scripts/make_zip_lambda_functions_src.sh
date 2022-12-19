@@ -20,6 +20,10 @@ zip -r ../../infrastructure/build/search_objects.zip .
 cd ../../news_crawler/src
 zip -r ../../infrastructure/build/news_crawler.zip .
 
+# make zip for lambda function put_project_object.py
+cd ../../put_project_object/src
+zip -r ../../infrastructure/build/put_project_object.zip .
+
 # make zip for lambda layer for function new_crawler.py
 cd ../../requests_layer
 python3 -m venv .venv

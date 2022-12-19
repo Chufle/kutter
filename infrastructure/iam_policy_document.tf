@@ -57,16 +57,21 @@ data "aws_iam_policy_document" "kutter_lambda_logs_db" {
   statement {
     actions = [
         "dynamodb:DescribeStream",
+        "dynamodb:ListStreams",
         "dynamodb:DescribeTable",
         "dynamodb:Get*",
         "dynamodb:Query",
         "dynamodb:Scan",
         "dynamodb:DeleteItem",
         "dynamodb:UpdateItem",
-        "dynamodb:PutItem"
+        "dynamodb:PutItem",
+        "dynamodb:GetRecords",
+        "dynamodb:GetShardIterator"
+
     ]
     resources = [
-      aws_dynamodb_table.dynamodb-kutter-table.arn
+      aws_dynamodb_table.dynamodb-kutter-table.arn,
+      "${aws_dynamodb_table.dynamodb-kutter-table.arn}/*"
         ]
   }
 }
