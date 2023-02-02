@@ -14,8 +14,9 @@
     - [requests_layer](#requests_layer)
   - [API Gateway](#api-gateway)
   - [DynamoDB](#dynamodb)
+  - [IAM](#iam)
   - [logbook folder](#logbook-folder)
-  - [Future](#future)
+  - [Future prospect](#future-prospect)
 
 ## Introduction
 "kutter" is a completly serverless content management system for photos and news-articles, builded in AWS, with an API Gateway based REST Interface. Above "kutter" a web frontend could be developed to create a journalist tool for article creation.
@@ -27,6 +28,10 @@
 ![Overview-kutter](./readme_screenshots/kutter-cloudcraft.png)
 
 ## Workflows
+
+Following workflows are implemented by the moment:
+* Checkin of uploaded photo files to kutter-table.
+* Import of news articles from news-api to kutter-table.
 
 ## Folder structure IaC
 AWS services are deployed by Terraform HCL.
@@ -141,8 +146,19 @@ Key-value pairs:
 "creationDate": date}
 ```
 
+## IAM
+Lambda functions' access to all ressources, like DynamoDB, S3 Buckets and CloudWatch, are rescricted by a policy document following PoLP.
+
 ## logbook folder
 Path: `./kutter/logbook`
 contains file "bookd.md". Here are the online ressources documented I used to build the AWS infrastructure.
 
-## Future
+## Future prospect
+The backlog is full. Here are some possible improvements:
+- Improving kutter-table item search.
+- Adding deletion handling for kutter-table items.
+- Import of metadata from photo files, like geographic information
+- Trigger of news archive search automatically by photo metadata like date and geo-data.
+- Adding more free online APIs to get more ressources for enriching news articles, e.g. Wikipedia, Google Maps...
+- Adding SNS for notification of news ressources updates.
+- New features to make kutter-table project-objects a powerful tool to organise news assets.
