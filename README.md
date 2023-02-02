@@ -67,37 +67,36 @@ Contains the "deploy.yml" file for the Github CI/CD pipeline.
 The lambda functions are written in python 3.9.
 
 ### get_object
-Path: `./kutter/get_object`
+Source code path: `./kutter/get_object`
 
-Function that allows to retrieve data from DynamoDB kutter-table items, like a photo- or a news-object. It's used by calling the REST-API endpoint `/prod/get-object?objectId=uuid`.
+Function that allows to retrieve data from DynamoDB kutter-table items, like a photo- or a news-object. It's used by calling the REST-API endpoint `/prod/get-object?objectId=uuid`. "uuid" must be replaced by the item uuid.
 
 ### list_objects
-Path: `./kutter/list_objects`
+Source code path: `./kutter/list_objects`
 
 Function that allows to list all DynamoDB kutter-table items, like a photo- or a news-object. It's used by calling the REST-API endpoint `/prod/`.
 
 ### news_crawler
-Path: `./kutter/news_crawler`
+Source code path: `./kutter/news_crawler`
 
-Function that allows to retrieve news-articles from the online news archive [news-api]( https://newsapi.org/docs) and import them to DynamoDB kutter-table. It's used by calling the REST-API endpoint `/prod/news_crawler?topic=*&dateFrom=*`. It's necessary to provide a topic and a start date. It is planned to optimise search parameters regarding date and others.
+Function that allows to retrieve news-articles from the online news archive [news-api]( https://newsapi.org/docs) and import them to DynamoDB kutter-table. It's used by calling the REST-API endpoint `/prod/news_crawler?topic=*&dateFrom=**`. "*" has to be replaced by the topic and  "**" by the date, which has the format YYYY-MM-DD. It is planned to optimise search parameters regarding date and others.
 
 ### photo_checkin
-Path: `./kutter/photo_checkin`
+Source code path: `./kutter/photo_checkin`
 
 Function used to create an item in DynamoDB kutter-table for every uploaded file to S3 upload Bucket. The file is moved to S3 store Bucket after the upload and renamed with an uuid to avoid duplicates. For that a lambda-trigger is used on the S3 upload Bucket.
 
 ### put_project_object
-Path: `./kutter/put_project_object`
+Source code path: `./kutter/put_project_object`
 
-Function to create project object items in DynamoDB kutter-table. REST-API endpoint: `/prod/put-project-object?location=*`
+Function to create project object items in DynamoDB kutter-table. REST-API endpoint: `/prod/put-project-object?location=*`.  "*" has to be replaced by the location value.
 
 ### search_objects
-Path: `./kutter/search_objects`
-
-REST-API endpoint: `/search-objects?search=*`
+Source code path: `./kutter/search_objects`
+This function executes a photo-object item search over the metadata "originalFileName" and "creationDate". REST-API endpoint is: `/search-objects?search=*`. "*" has to be replaced by the search value. CreationDate has the format YYYY-MM-DD.
 
 ### requests_layer
-Path: `./kutter/requests_layer`
+Source code path: `./kutter/requests_layer`
 
 Lambda layer for requests module, used by lambda function "news_crawler".
 
@@ -105,9 +104,9 @@ Lambda layer for requests module, used by lambda function "news_crawler".
 API Gateway is deployed to provide REST API Endpoints. The endpoints are:
 * `/prod/get-object?objectId=uuid`: to retrieve item information of the kutter-table object. "uuid" must be replaced by the item uuid.
 * `/prod/`: list all items of the kutter-table.
-* `/prod/news_crawler?topic=*&dateFrom=*`: list all news articles regarding topic-search and date. News are imported from news-api archive to the kutter-table.
-* `/prod/put-project-object?location=*`: creates a kutter-table item of the type project-object. Project items main metadata information, by the moment, is the location where the news happend.
-* `/search-objects?search=*`: executes a photo-object item search over the metadata "originalFileName" and "creationDate".
+* `/prod/news_crawler?topic=*&dateFrom=**`: list all news articles regarding topic-search and date. News are imported from news-api archive to the kutter-table. "*" has to be replaced by the topic and  "**" by the date, which has the format YYYY-MM-DD.
+* `/prod/put-project-object?location=*`: creates a kutter-table item of the type project-object. Project items main metadata information, by the moment, is the location where the news happend. "*" has to be replaced by the location value.
+* `/search-objects?search=*`: executes a photo-object item search over the metadata "originalFileName" and "creationDate". "*" has to be replaced by the search value. CreationDate has the format YYYY-MM-DD.
 
 The root-address of the endpoints is not fix, because of the PoC character of this project, and could be retrieved from the AWS Service.
 
